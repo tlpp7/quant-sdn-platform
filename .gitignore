@@ -1,0 +1,51 @@
+# === Caches et Fichiers Temporaires Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === Caches d'outils de Tests et Qualité ===
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# === Fichiers générés par les IDE (VS Code, PyCharm) ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Distribution et Packaging ===
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === Données locales et Graphiques ===
+*.png
+*.jpg
+*.jpeg
+*.pdf
+.ipynb_checkpoints/
+
+# === Rapports de session dynamiques (Optionnel) ===
+# Supprimez la ligne suivante si vous souhaitez historiser vos rapports sur GitHub
+session_report.md
