@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Service 1 : Exécution du moteur de production et génération du rapport financier
+  quant-simulation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quant_sdn_sim
+    volumes:
+      - .:/app # Permet de récupérer le fichier 'session_report.md' sur votre machine locale après l'exécution
+    command: python run_simulation.py
+    environment:
+      - SDN_CONTROLLER_URL=http://sdn-controller.local:8080
+      - LATENCE_PAR_DEFAUT_SDN=3
+      - SEUIL_VOLATILITE_CRITIQUE=55.0
+      - FRAIS_INFRASTRUCTURE_SDN=250
+
+  # Service 2 : Exécution automatique de la suite de tests (Assurance Qualité)
+  quant-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quant_sdn_tests
+    command: python -m pytest tests/ --verbose
